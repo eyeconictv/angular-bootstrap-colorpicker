@@ -34,6 +34,8 @@ gulp.task('compress', function() {
       .pipe(gulp.dest('./js'))
 });
 
+gulp.task('build', ['css', 'jshint', 'compress']);
+
 gulp.task('test', function (done) {
   karma.start({
     configFile: __dirname + '/test/karma.conf.js',
