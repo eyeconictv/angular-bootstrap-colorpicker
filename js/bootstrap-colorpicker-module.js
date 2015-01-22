@@ -264,14 +264,27 @@ angular.module('colorpicker.module', [])
         link: function ($scope, elem, attrs, ngModel) {
           var
               thisFormat = attrs.colorpicker ? attrs.colorpicker : 'hex',
+              isBackgroundSetting = angular.isDefined(attrs.backgroundSetting) ? true : false,
               position = angular.isDefined(attrs.colorpickerPosition) ? attrs.colorpickerPosition : 'bottom',
               inline = angular.isDefined(attrs.colorpickerInline) ? attrs.colorpickerInline : false,
               fixedPosition = angular.isDefined(attrs.colorpickerFixedPosition) ? attrs.colorpickerFixedPosition : false,
-              target = angular.isDefined(attrs.colorpickerParent) ? elem.parent() : angular.element(document.body),
+              target = angular.isDefined(attrs.colorpickerParent) || isBackgroundSetting ? elem.parent() : angular.element(document.body),
               withInput = angular.isDefined(attrs.colorpickerWithInput) ? attrs.colorpickerWithInput : false,
-              inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '',
+              inputTemplate = withInput ? '<input type="text" name="colorpicker-input">' : '';
+
+          inline = isBackgroundSetting ? 'true' : inline;
+
+          var
               closeButton = !inline ? '<button type="button" class="close close-colorpicker">&times;</button>' : '',
-              template =
+              template = isBackgroundSetting ?
+                  '<div class="colorpicker">' +
+                  '<colorpicker-saturation><i></i></colorpicker-saturation>' +
+                  '<colorpicker-hue><i></i></colorpicker-hue>' +
+                  '<colorpicker-alpha><i></i></colorpicker-alpha>' +
+                  '<colorpicker-preview></colorpicker-preview>' +
+                  inputTemplate +
+                  '</div>'
+                :
                   '<div class="colorpicker dropdown">' +
                       '<div class="dropdown-menu">' +
                       '<colorpicker-saturation><i></i></colorpicker-saturation>' +
@@ -359,6 +372,18 @@ angular.module('colorpicker.module', [])
 		      if (inline === 'true') {
 			      colorpickerTemplate.addClass('colorpicker-inline');
 		      }
+
+          if (isBackgroundSetting) {
+            colorpickerTemplate.addClass('colorpicker-background-setting');
+            sliderHue.css('width', '40px');
+            if (sliderAlpha) {
+              sliderAlpha.css('width', '40px');
+              colorpickerPreview.css('width', '188px');
+            } else {
+              colorpickerPreview.css('width', '144px');
+            }
+
+          }
 
           target.append(colorpickerTemplate);
 

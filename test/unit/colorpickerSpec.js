@@ -62,6 +62,7 @@ describe('colorpicker module', function () {
       compileElement(template.find('input'), $scope);
       expect($('#foo').find('.colorpicker').length > 0).toBeTruthy();
       expect($('body > .colorpicker').length === 0).toBeTruthy();
+      $('body').empty();
     });
 
     it('should update the color preview, when putting a new color in the optional input field', function() {
@@ -99,6 +100,18 @@ describe('colorpicker module', function () {
       elm.trigger('keyup');
       expect($colorPickerInput.val()).toBe('#333');
     });
+
+    it('should configure a background setting instance', function () {
+      var template = $('<div id="foo"><input colorpicker background-setting ng-model="picker.color" type="text" value="" /></div>');
+      $('body').append(template);
+      compileElement(template.find('input'), $scope);
+      expect($('#foo').find('.colorpicker').length > 0).toBeTruthy();
+      expect($('body > .colorpicker').length === 0).toBeTruthy();
+      expect($('#foo').find('.colorpicker').hasClass('colorpicker-visible')).toBeTruthy();
+      expect($('#foo').find('.colorpicker-background-setting').length > 0).toBeTruthy();
+      $('body').empty();
+    });
+
   });
 
   describe('Color', function () {
