@@ -5,8 +5,15 @@ var minifyCss = require('gulp-minify-css');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var karma = require('karma').server;
+var bump = require("gulp-bump");
 
 gulp.task('default', ['css', 'jshint', 'test', 'compress']);
+
+gulp.task("bump", function(){
+  return gulp.src(["./package.json", "./bower.json"])
+    .pipe(bump({type:"patch"}))
+    .pipe(gulp.dest("./"));
+});
 
 gulp.task('less', function() {
   return gulp.src('./less/*.less')
