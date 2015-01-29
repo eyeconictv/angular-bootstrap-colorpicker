@@ -65,7 +65,6 @@ colorpicker-alpha,
   left: 0;
   z-index: 9999;
   display: none;
-  margin-top: 15px;
 }
 .colorpicker colorpicker-hue,
 .colorpicker colorpicker-alpha,
