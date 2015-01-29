@@ -1,10 +1,10 @@
 {
   "name": "rv-angular-bootstrap-colorpicker",
-  "version": "3.0.12",
-  "main": [ 
-		"js/bootstrap-colorpicker-module.js",
-		"css/colorpicker.css"
-	],
+  "version": "3.0.13",
+  "main": [
+    "js/bootstrap-colorpicker-module.js",
+    "css/colorpicker.css"
+  ],
   "ignore": [
     "node_modules",
     "components",

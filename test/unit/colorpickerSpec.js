@@ -102,14 +102,12 @@ describe('colorpicker module', function () {
     });
 
     it('should configure a background setting instance', function () {
-      var template = $('<div id="foo"><input colorpicker background-setting ng-model="picker.color" type="text" value="" /></div>');
-      $('body').append(template);
-      compileElement(template.find('input'), $scope);
-      expect($('#foo').find('.colorpicker').length > 0).toBeTruthy();
-      expect($('body > .colorpicker').length === 0).toBeTruthy();
-      expect($('#foo').find('.colorpicker').hasClass('colorpicker-visible')).toBeTruthy();
-      expect($('#foo').find('.colorpicker-background-setting').length > 0).toBeTruthy();
-      $('body').empty();
+      var elm = compileElement('<input colorpicker="rgba" background-setting ng-model="picker.color" type="text" value="" />', $scope);
+      elm.click();
+      expect($(document).find('.colorpicker').hasClass('colorpicker-visible')).toBeTruthy();
+      expect($(document).find('.colorpicker').find('colorpicker-preview').length === 0).toBeTruthy();
+      expect($(document).find('.colorpicker').find('colorpicker-preview').length === 0).toBeTruthy();
+      expect($(document).find('.colorpicker').find('button').length === 0).toBeTruthy();
     });
 
   });
