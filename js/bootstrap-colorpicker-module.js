@@ -275,12 +275,14 @@ angular.module('colorpicker.module', [])
           var
               closeButton = !inline ? '<button type="button" class="close close-colorpicker">&times;</button>' : '',
               template = isBackgroundSetting ?
-                  '<div class="colorpicker">' +
-                  '<colorpicker-saturation><i></i></colorpicker-saturation>' +
-                  '<colorpicker-hue><i></i></colorpicker-hue>' +
-                  '<colorpicker-alpha><i></i></colorpicker-alpha>' +
-                  inputTemplate +
-                  '</div>'
+                  '<div class="colorpicker dropdown">' +
+                    '<div class="dropdown-menu">' +
+                    '<colorpicker-saturation><i></i></colorpicker-saturation>' +
+                    '<colorpicker-hue><i></i></colorpicker-hue>' +
+                    '<colorpicker-alpha><i></i></colorpicker-alpha>' +
+                    inputTemplate +
+                    '</div>' +
+                    '</div>'
                 :
                   '<div class="colorpicker dropdown">' +
                       '<div class="dropdown-menu">' +
