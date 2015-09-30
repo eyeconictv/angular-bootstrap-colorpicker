@@ -1,28 +1,29 @@
 module.exports = function(config){
   config.set({
-    basePath : '',
+    basePath : '../',
     files : [
-      'libs/jquery-1.10.1.min.js',
-      'libs/angular.min.js',
-      'libs/angular-mocks.js',
-      '../js/**/*.js',
-      'unit/**/*.js'
+      'test/libs/jquery-1.10.1.min.js',
+      'test/libs/angular.min.js',
+      'test/libs/angular-mocks.js',
+      'js/**/bootstrap-colorpicker-module.js',
+      'test/unit/**/*.js'
     ],
     singleRun: true,
     frameworks: ['jasmine'],
-    browsers : ['Chrome'],
+    browsers : ['Firefox'],
     plugins : [
       'karma-chrome-launcher',
+      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-coverage'
     ],
     reporters: ['dots', 'coverage'],
     coverageReporter: {
       type: 'html',
-      dir: 'coverage/',
+      dir: 'test/coverage/'
     },
     preprocessors: {
-      '../**/js/**/*.js': 'coverage'
+      'js/bootstrap-colorpicker-module.js': 'coverage'
     }
   });
 };
