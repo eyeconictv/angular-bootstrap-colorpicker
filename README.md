@@ -1,5 +1,4 @@
 [![devDependency Status](https://david-dm.org/buberdds/angular-bootstrap-colorpicker/dev-status.svg?branch=master)](https://david-dm.org/buberdds/angular-bootstrap-colorpicker#info=devDependencies)
-[![Build Status](https://travis-ci.org/buberdds/angular-bootstrap-colorpicker.svg?branch=master)](https://travis-ci.org/buberdds/angular-bootstrap-colorpicker)
 
 angular-bootstrap-colorpicker
 =============================
