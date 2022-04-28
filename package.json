@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/buberdds/angular-bootstrap-colorpicker"
+    "url": "https://github.com/porcupine-plan/angular-bootstrap-colorpicker"
   },
   "keywords": [
     "angular",
@@ -38,7 +38,7 @@
   "author": "Michal Zielenkiewicz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/buberdds/angular-bootstrap-colorpicker/issues"
+    "url": "https://github.com/porcupine-plan/angular-bootstrap-colorpicker/issues"
   },
-  "homepage": "https://github.com/buberdds/angular-bootstrap-colorpicker"
+  "homepage": "https://github.com/porcupine-plan/angular-bootstrap-colorpicker"
 }
